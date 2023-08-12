@@ -72,6 +72,17 @@ class MainActivity : AppCompatActivity() {
 
                         if (response.data.status.equals("true")) {
                             Toast.makeText(applicationContext,response.data.status+"  "+response.data.level_id,Toast.LENGTH_LONG).show()
+                            val intent = Intent(this, SurveySubmitActivity::class.java)
+                            intent.putExtra("levelId", response.data.level_id.toString())
+                            intent.putExtra("userId", response.data.id.toString())
+                            intent.putExtra("tpqaId", response.data.tpqa_id.toString())
+                            startActivity(intent)
+//
+//                                intent.putExtra("loginId", response.data.message[0].loginId)
+////                                intent.putExtra("loginId", "95524.73741")
+//                                intent.putExtra("user_id", response.data.message[0].user_id)
+////                                startActivity(intent)
+
 //                            if (response.data.message[0].utid.equals("5")) {
 //                                val intent = Intent(this, WelcomeActivity::class.java)
 //                                intent.putExtra("utypeId", response.data.message[0].utid)
@@ -89,7 +100,6 @@ class MainActivity : AppCompatActivity() {
 //                                intent.putExtra("org_office_id", response.data.message[0].org_office_id)
 ////                                startActivity(intent)
 //                            }
-                            finish()
                         }
                         else{
                             Toast.makeText(

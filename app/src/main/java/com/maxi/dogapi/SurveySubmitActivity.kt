@@ -1,6 +1,5 @@
 package com.maxi.dogapi
 
-import android.R
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -49,6 +48,10 @@ class SurveySubmitActivity : AppCompatActivity() {
     }
 
     private fun initStateData() {
+        val userId= intent.getStringExtra("userId").toString()
+        val levelId =intent.getStringExtra("levelId").toString()
+        val tpqaId=intent.getStringExtra("tpqaId").toString()
+        viewModel.fetchStateResponse(userId,levelId,tpqaId )
        viewModel.stateList.observe(this){
            adapterState = StateSpinnerAdapter(this, it)
            binding.spinnerState.adapter = adapterState
