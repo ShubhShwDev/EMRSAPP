@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                         Log.e("RESPONSE1","response"+response.data.status)
 
                         if (response.data.status.equals("true")) {
-                            Toast.makeText(applicationContext,response.data.status+"  "+response.data.level_id,Toast.LENGTH_LONG).show()
+//                            Toast.makeText(applicationContext,response.data.status+"  "+response.data.level_id,Toast.LENGTH_LONG).show()
                             val intent = Intent(this, SurveySubmitActivity::class.java)
                             intent.putExtra("levelId", response.data.level_id.toString())
                             intent.putExtra("userId", response.data.id.toString())
