@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+<ScrollView
+    android:background="@drawable/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="@drawable/bg"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView_Morth"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/right_logo"
+
+            />
+
+
+        <EditText
+            android:id="@+id/tvSchoolName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="SchoolName"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+        <EditText
+            android:id="@+id/tvNameOfVisitingOfficer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Name Of Visiting Officer"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+
+        <EditText
+            android:id="@+id/tvDesignation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Designation"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+        <EditText
+            android:id="@+id/tvContact"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Contact"
+            android:text=""
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+        <EditText
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+        <EditText
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:editable="false"
+            android:paddingEnd="10dp"
+            android:drawableEnd="@drawable/ic_calendar_today_24"
+            android:hint="Visit Date"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            tools:ignore="Deprecated" />
+
+        <EditText
+            android:id="@+id/tvVisitTime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:editable="false"
+            android:paddingEnd="10dp"
+            android:drawableEnd="@drawable/ic_time_24"
+            android:hint="Visit Time"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            tools:ignore="Deprecated" />
+
+        <EditText
+            android:id="@+id/tvObservation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Observation"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+
+        <EditText
+            android:id="@+id/tvOverallObservation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Overall Observation &amp; Remark"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+
+
+        <EditText
+            android:id="@+id/tvRemark"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Remark"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+
+
+        <Button
+            android:id="@+id/btSubmit"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Submit"
+            android:background="@drawable/round_corner"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+
+</ScrollView>
+</layout>
