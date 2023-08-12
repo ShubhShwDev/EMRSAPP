@@ -13,6 +13,7 @@ class Constants {
         const val SCHOOL_URL = "$BASE_URL/EMRS/emrs_api/user/school.php"
 //        const val SCHOOL_URL = "$BASE_URL/EMRS/emrs_api/user/school.php"
         const val RANDOM_URL_1= "api/breeds/image/random"
+        const val STATE_LIST_URL= "$BASE_URL/EMRS/emrs_api/user/state.php"
 
 
     }
