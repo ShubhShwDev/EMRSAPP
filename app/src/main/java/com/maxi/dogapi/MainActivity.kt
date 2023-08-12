@@ -40,10 +40,8 @@ class MainActivity : AppCompatActivity() {
                 var uName = _binding.tvUName.text.toString()
                 var uPswd = _binding.tvUPswd.text.toString()
 
-//                uName = encyptiontech(uName, "md5")
-//                uPswd = encyptiontech(uPswd, "md5")
                 val auth_seed = "45685956"
-                uPswd += auth_seed
+//                uPswd += auth_seed
                 Log.e("valuJSONuPswd",uPswd.toString())
 //            val auth_seed = RandomStringUtil
 
@@ -53,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 uPswd = encyptiontech(uPswd, "SHA-256")
 //            uName="27aa6643a3725d65cd2653c9c2bc8ffaecfb4ff0ed14724911889f2a8b6dace0df765d007275b0f0e8247b369e165cb398a0e917f254fc9a77751753cee15ec9"
 //            uPswd1="f98b805003148f938f0a7c53d86f814e06c2cded0a019823ce2122589351069f1a199f9eae5d3894f0eb4c19172372f9b9bceab0e44667741a9fb20905f6debb"
-                fetchData(uName, uPswd, auth_seed)
+                fetchData(uName, uPswd+auth_seed, auth_seed)
                 //            fetchResponse(uName.toString(),uPswd.toString())
             }
         }
