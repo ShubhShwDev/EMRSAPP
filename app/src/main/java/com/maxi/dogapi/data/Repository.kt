@@ -4,15 +4,13 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.maxi.dogapi.data.remote.RemoteDataSource
-import com.maxi.dogapi.model.BaseApiResponse
-import com.maxi.dogapi.model.LoginResponseArray
-import com.maxi.dogapi.model.LoginResultResponse
-import com.maxi.dogapi.model.RequestModel
+import com.maxi.dogapi.model.*
 import com.maxi.dogapi.model.cala.CalaRequestModel
 import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.lp.LpRequestModel
 import com.maxi.dogapi.model.lp.LpResultResponse
+import com.maxi.dogapi.model.state.StateResponse
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyRequestModel
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyResJSONObject
 import com.maxi.dogapi.utils.NetworkResult
@@ -33,6 +31,13 @@ class Repository @Inject constructor(
     suspend fun getLogin(requestModel: RequestModel): Flow<NetworkResult<LoginResponseArray>> {
         return flow<NetworkResult<LoginResponseArray>> {
             emit(safeApiCall { remoteDataSource.getLogin(requestModel) })
+        }.flowOn(Dispatchers.IO)
+    }
+
+
+    suspend fun getState(requestModel: StateRequestModel): Flow<NetworkResult<StateResponse>> {
+        return flow<NetworkResult<StateResponse>> {
+            emit(safeApiCall { remoteDataSource.getState(requestModel) })
         }.flowOn(Dispatchers.IO)
     }
 

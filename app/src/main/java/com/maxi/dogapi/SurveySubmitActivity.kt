@@ -12,7 +12,9 @@ import com.maxi.dogapi.databinding.ActivitySubmitSurveyBinding
 import com.maxi.dogapi.model.school.SchoolDetails
 import com.maxi.dogapi.model.state.StateDetail
 import com.maxi.dogapi.viewmodel.SubmitSurveyViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 
 class SurveySubmitActivity : AppCompatActivity() {
 
@@ -31,7 +33,7 @@ class SurveySubmitActivity : AppCompatActivity() {
     private fun initSchoolData() {
         viewModel.schoolList.observe(this){
             adapterSchool = SchoolSpinnerAdapter(this, it)
-            binding.spinnerSchool.adapter = adapterState
+            binding.spinnerSchool.adapter = adapterSchool
         }
         binding.spinnerSchool.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
@@ -52,6 +54,7 @@ class SurveySubmitActivity : AppCompatActivity() {
         val levelId =intent.getStringExtra("levelId").toString()
         val tpqaId=intent.getStringExtra("tpqaId").toString()
         viewModel.fetchStateResponse(userId,levelId,tpqaId )
+
        viewModel.stateList.observe(this){
            adapterState = StateSpinnerAdapter(this, it)
            binding.spinnerState.adapter = adapterState

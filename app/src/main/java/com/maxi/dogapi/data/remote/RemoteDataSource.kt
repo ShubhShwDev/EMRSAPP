@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.maxi.dogapi.model.RequestModel
+import com.maxi.dogapi.model.StateRequestModel
 import com.maxi.dogapi.model.cala.CalaRequestModel
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.lp.LpRequestModel
@@ -26,6 +27,9 @@ class RemoteDataSource @Inject constructor(private val feedService: FeedService)
 
     suspend fun getCalaVillageSurveyDetails(requestModel: CalaVillageSurveyRequestModel) =
         feedService.getCalaVillageSurveyDetails(requestModel)
+
+    suspend fun getState(stateRequestModel: StateRequestModel) =
+        feedService.getStateList(stateRequestModel)
 
 
 //    suspend fun getJsonDataFromAsset(context: Context) =

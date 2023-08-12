@@ -7,9 +7,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.maxi.dogapi.data.Repository
+import com.maxi.dogapi.data.remote.FeedService
 import com.maxi.dogapi.model.LoginResponseArray
 import com.maxi.dogapi.model.LoginResultResponse
 import com.maxi.dogapi.model.RequestModel
+import com.maxi.dogapi.model.StateRequestModel
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.school.SchoolDetails
 import com.maxi.dogapi.model.state.StateDetail
@@ -32,10 +34,15 @@ class SubmitSurveyViewModel @Inject constructor
 
     fun fetchStateResponse(userId: String, levelId: String, tpqaId: String) = viewModelScope.launch {
 
-        val jsonObject =  JSONObject()
-        jsonObject.put("user_id",userId)
-        jsonObject.put("level_id",levelId)
-        jsonObject.put("tpqa_id",tpqaId)
+        val requestModel =  StateRequestModel(userId,levelId,tpqaId)
+        Log.e("RESPONSE","respnse"+userId+""+levelId+""+tpqaId)
+
+
+
+        repository.getState(requestModel).collect { values ->
+            stateList.value = values.data?.data
+            Log.e("Values",values.data?.data.toString())
+        }
 
 /*
         repository.getLogin(requestModel).collect { values ->
