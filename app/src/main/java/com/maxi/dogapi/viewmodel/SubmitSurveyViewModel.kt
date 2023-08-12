@@ -29,7 +29,8 @@ class SubmitSurveyViewModel @Inject constructor
     application: Application
 ) : AndroidViewModel(application) {
 
-    var stateList = MutableLiveData<List<StateDetail>>()
+    private val _response: MutableLiveData<List<StateDetail>> = MutableLiveData()
+    val stateList: LiveData<List<StateDetail>> = _response
     var schoolList = MutableLiveData<List<SchoolDetails>>()
 
     fun fetchStateResponse(userId: String, levelId: String, tpqaId: String) = viewModelScope.launch {
@@ -40,8 +41,9 @@ class SubmitSurveyViewModel @Inject constructor
 
 
         repository.getState(requestModel).collect { values ->
-            stateList.value = values.data?.data
-            Log.e("Values",values.data?.data.toString())
+            _response.value = values.data?.data
+
+//            stateList.value = values.data?.data
         }
 
 /*

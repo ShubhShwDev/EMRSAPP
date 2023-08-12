@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -44,7 +45,7 @@ class SurveySubmitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_submit_survey)
         fetchLocation()
-//        initStateData()
+        initStateData()
 //        initSchoolData()
     }
 
@@ -87,16 +88,24 @@ class SurveySubmitActivity : AppCompatActivity() {
         viewModel.fetchStateResponse(userId, levelId, tpqaId)
 
         viewModel.stateList.observe(this) {
+            Log.e("Values","data"+it.toString())
+
+//            var aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
+//            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//            val adapter = ArrayAdapter(this, R.layout.custom_spinner, it)
+
             adapterState = StateSpinnerAdapter(this, it)
             binding.spinnerState.adapter = adapterState
+            binding.spinnerState.setSelection(0)
+
         }
         binding.spinnerState.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                val clickedItem: StateDetail = parent.getItemAtPosition(position) as StateDetail
-                val name: String = clickedItem.name
+                val clickedItem: String = parent.getItemAtPosition(position) as String
+                val name: String = clickedItem
                 Toast.makeText(this@SurveySubmitActivity, "$name selected", Toast.LENGTH_SHORT)
                     .show()
             }
