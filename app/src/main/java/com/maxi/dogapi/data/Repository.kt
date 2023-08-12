@@ -10,6 +10,7 @@ import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.lp.LpRequestModel
 import com.maxi.dogapi.model.lp.LpResultResponse
+import com.maxi.dogapi.model.school.SchoolResponse
 import com.maxi.dogapi.model.state.StateResponse
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyRequestModel
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyResJSONObject
@@ -38,6 +39,11 @@ class Repository @Inject constructor(
     suspend fun getState(requestModel: StateRequestModel): Flow<NetworkResult<StateResponse>> {
         return flow<NetworkResult<StateResponse>> {
             emit(safeApiCall { remoteDataSource.getState(requestModel) })
+        }.flowOn(Dispatchers.IO)
+    }
+    suspend fun getSchoolList(requestModel: SchoolRequestModel): Flow<NetworkResult<SchoolResponse>> {
+        return flow<NetworkResult<SchoolResponse>> {
+            emit(safeApiCall { remoteDataSource.getSchoolList(requestModel) })
         }.flowOn(Dispatchers.IO)
     }
 

@@ -4,15 +4,13 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.maxi.dogapi.model.LoginResponseArray
-import com.maxi.dogapi.model.LoginResultResponse
-import com.maxi.dogapi.model.RequestModel
-import com.maxi.dogapi.model.StateRequestModel
+import com.maxi.dogapi.model.*
 import com.maxi.dogapi.model.cala.CalaRequestModel
 import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.lp.LpRequestModel
 import com.maxi.dogapi.model.lp.LpResultResponse
+import com.maxi.dogapi.model.school.SchoolResponse
 import com.maxi.dogapi.model.state.StateResponse
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyRequestModel
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyResJSONObject
@@ -51,4 +49,7 @@ interface FeedService {
 
     @POST(Constants.STATE_LIST_URL)
     suspend fun getStateList(@Body requestModel: StateRequestModel): Response<StateResponse>
+
+    @POST(Constants.SCHOOL_URL)
+    suspend fun getSchoolList(@Body requestModel: SchoolRequestModel): Response<SchoolResponse>
 }

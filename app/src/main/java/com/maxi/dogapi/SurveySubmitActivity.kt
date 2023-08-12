@@ -61,11 +61,16 @@ class SurveySubmitActivity : AppCompatActivity() {
 
     }
 
-    private fun initSchoolData() {
-        viewModel.schoolList.observe(this) {
-            adapterSchool = SchoolSpinnerAdapter(this, it)
-            binding.spinnerSchool.adapter = adapterSchool
-        }
+    private fun initSchoolData(userId:String,levelId:String,tpqaId:String,stateId:String) {
+
+        viewModel.fetchSchoolResponse(userId, levelId, tpqaId,stateId)
+
+//        viewModel.schoolList.observe(this) {
+//            adapterSchool = SchoolSpinnerAdapter(this, it)
+//            binding.spinnerSchool.adapter = adapterState
+//            binding.spinnerSchool.setSelection(0)
+//
+//        }
         binding.spinnerSchool.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -89,11 +94,6 @@ class SurveySubmitActivity : AppCompatActivity() {
 
         viewModel.stateList.observe(this) {
             Log.e("Values","data"+it.toString())
-
-//            var aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
-//            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            val adapter = ArrayAdapter(this, R.layout.custom_spinner, it)
-
             adapterState = StateSpinnerAdapter(this, it)
             binding.spinnerState.adapter = adapterState
             binding.spinnerState.setSelection(0)
@@ -106,6 +106,8 @@ class SurveySubmitActivity : AppCompatActivity() {
             ) {
                 val clickedItem: String = parent.getItemAtPosition(position) as String
                 val name: String = clickedItem
+                val positionStates = viewModel.stateList.value?.get(position)?.id
+                initSchoolData(userId,levelId,tpqaId,positionStates?:"")
                 Toast.makeText(this@SurveySubmitActivity, "$name selected", Toast.LENGTH_SHORT)
                     .show()
             }

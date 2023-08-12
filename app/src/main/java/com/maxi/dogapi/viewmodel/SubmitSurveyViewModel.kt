@@ -8,12 +8,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.maxi.dogapi.data.Repository
 import com.maxi.dogapi.data.remote.FeedService
-import com.maxi.dogapi.model.LoginResponseArray
-import com.maxi.dogapi.model.LoginResultResponse
-import com.maxi.dogapi.model.RequestModel
-import com.maxi.dogapi.model.StateRequestModel
+import com.maxi.dogapi.model.*
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.school.SchoolDetails
+import com.maxi.dogapi.model.school.SchoolResponse
 import com.maxi.dogapi.model.state.StateDetail
 import com.maxi.dogapi.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -30,8 +28,9 @@ class SubmitSurveyViewModel @Inject constructor
 ) : AndroidViewModel(application) {
 
     private val _response: MutableLiveData<List<StateDetail>> = MutableLiveData()
+    private val _response_school: MutableLiveData<List<SchoolDetails>> = MutableLiveData()
     val stateList: LiveData<List<StateDetail>> = _response
-    var schoolList = MutableLiveData<List<SchoolDetails>>()
+    val schoolList: LiveData<List<SchoolDetails>> = _response_school
 
     fun fetchStateResponse(userId: String, levelId: String, tpqaId: String) = viewModelScope.launch {
 
@@ -46,12 +45,20 @@ class SubmitSurveyViewModel @Inject constructor
 //            stateList.value = values.data?.data
         }
 
-/*
-        repository.getLogin(requestModel).collect { values ->
-            _response.value = values
-            Log.e("Values",response.value.toString()+ " "+values.toString())
+
+    }
+    fun fetchSchoolResponse(userId: String, levelId: String, tpqaId: String, stateId: String) = viewModelScope.launch {
+
+        val requestModel =  SchoolRequestModel(userId,levelId,tpqaId,stateId)
+        Log.e("RESPONSEschool","respnse"+userId+""+levelId+""+tpqaId)
+
+
+
+        repository.getSchoolList(requestModel).collect { values ->
+            _response_school.value = values.data?.data
+
+//            stateList.value = values.data?.data
         }
-*/
 
 
     }
