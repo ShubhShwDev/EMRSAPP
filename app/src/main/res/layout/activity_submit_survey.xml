@@ -27,7 +27,7 @@
 
 
         <EditText
-            android:id="@+id/tvSchoolName"
+            android:id="@+id/etSchoolName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -40,7 +40,7 @@
             android:background="@drawable/round_corner"
             />
         <EditText
-            android:id="@+id/tvNameOfVisitingOfficer"
+            android:id="@+id/etNameOfVisitingOfficer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -55,7 +55,7 @@
 
 
         <EditText
-            android:id="@+id/tvDesignation"
+            android:id="@+id/etDesignation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -69,7 +69,7 @@
             />
 
         <EditText
-            android:id="@+id/tvContact"
+            android:id="@+id/etContact"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -84,7 +84,7 @@
             />
 
         <EditText
-            android:id="@+id/tvEmail"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -99,7 +99,7 @@
             />
 
         <EditText
-            android:id="@+id/tvDate"
+            android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -117,7 +117,7 @@
             tools:ignore="Deprecated" />
 
         <EditText
-            android:id="@+id/tvVisitTime"
+            android:id="@+id/etVisitTime"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -134,8 +134,22 @@
             android:background="@drawable/round_corner"
             tools:ignore="Deprecated" />
 
+
+        <Spinner
+            android:layout_marginTop="15dp"
+            android:id="@+id/spinner_state"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_corner" />
+
+        <Spinner
+            android:layout_marginTop="15dp"
+            android:id="@+id/spinner_school"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_corner" />
         <EditText
-            android:id="@+id/tvObservation"
+            android:id="@+id/etObservation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -149,9 +163,73 @@
             android:background="@drawable/round_corner"
             />
 
+        <EditText
+            android:id="@+id/etInternalPlumbing"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="Internal Plumbing(Water supply and sanitary installation)"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
 
         <EditText
-            android:id="@+id/tvOverallObservation"
+            android:id="@+id/etInternalElectricalWork"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="Internal Electrical Work"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+
+        <EditText
+            android:id="@+id/etOtherDevelopmentWork"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="Other development works(Road,sports, Flooring, etc.)"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+        <EditText
+            android:id="@+id/etMaterialQuality"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="Material quality(Brick,Cement, Sand, etc.)"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
+
+
+        <EditText
+            android:id="@+id/etOverallObservation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -168,7 +246,7 @@
 
 
         <EditText
-            android:id="@+id/tvRemark"
+            android:id="@+id/etRemark"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
@@ -181,6 +259,9 @@
             android:textColor="@color/colorText"
             android:background="@drawable/round_corner"
             />
+
+
+
 
 
 
