@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tvPName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="14dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Hallo"
+                android:textColor="@color/colorText" />
+        <TextView
+                android:id="@+id/tvAddDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="12dp"
+                android:drawableStart="@drawable/ic_baseline_location_on_24"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Hallo"
+                android:textColor="@color/colorText" />
+        <TextView
+                android:id="@+id/tvCalaDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="Hallo"
+                android:textColor="@color/colorText" />
+        <TextView
+                android:id="@+id/tvSurveyDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="Hallo"
+                android:textColor="@color/colorText" />
+        <TextView
+                android:id="@+id/tvAreaDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="Hallo"
+                android:textColor="@color/colorText" />
+        <TextView
+                android:id="@+id/tvANotificationDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textSize="10dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="Hallo"
+                android:textColor="@color/colorText" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

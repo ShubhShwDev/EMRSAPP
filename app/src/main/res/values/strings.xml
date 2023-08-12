@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EMRS</string>
+    <string name="app_subName">Land Acquisition Portal
+</string>
+    <string name="dog_image">Dog Image</string>
+    <string name="refresh">Refresh</string>
+    <string name="button_start_tracking">Start Trip</string>
+    <string name="button_stop_tracking">Stop Trip</string>
+    <string name="latitude_label">Latitude</string>
+</resources>
