@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
 
                         Log.e("RESPONSE1","response"+response.data.status)
 
-                        if (response.data.status.equals("200")) {
-//                            Toast.makeText(applicationContext,response.data.status+"  "+response.data.level_id,Toast.LENGTH_LONG).show()
+                        if (response.data.status.equals("true")) {
+                            Toast.makeText(applicationContext,response.data.status+"  "+response.data.level_id,Toast.LENGTH_LONG).show()
 //                            if (response.data.message[0].utid.equals("5")) {
 //                                val intent = Intent(this, WelcomeActivity::class.java)
 //                                intent.putExtra("utypeId", response.data.message[0].utid)
