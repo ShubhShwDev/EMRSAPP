@@ -4,12 +4,56 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-<ScrollView
+<androidx.core.widget.NestedScrollView
     android:background="@drawable/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal"
+                android:minHeight="60dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hi"
+                    android:id="@+id/tv_username"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_gravity="center"
+                    android:gravity="center"></TextView>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/iv_logout"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_logout"
+                    android:layout_alignParentEnd="true"></androidx.appcompat.widget.AppCompatImageView>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -35,10 +79,21 @@
             android:textSize="40px"
             android:paddingLeft="10dp"
             android:hint="SchoolName"
+            android:enabled="false"
+            android:visibility="gone"
             android:text=""
             android:textColor="@color/colorText"
             android:background="@drawable/round_corner"
             />
+        <Spinner
+            android:layout_marginTop="15dp"
+            android:id="@+id/spinner_tp_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:background="@drawable/round_corner"
+           />
+
         <EditText
             android:id="@+id/etNameOfVisitingOfficer"
             android:layout_width="match_parent"
@@ -107,6 +162,7 @@
             android:textSize="40px"
             android:paddingLeft="10dp"
             android:editable="false"
+            android:enabled="false"
             android:paddingEnd="10dp"
             android:drawableEnd="@drawable/ic_calendar_today_24"
             android:hint="Visit Date"
@@ -134,6 +190,37 @@
             android:background="@drawable/round_corner"
             tools:ignore="Deprecated" />
 
+        <EditText
+            android:id="@+id/etLat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:hint="Latitude"
+            android:text=""
+            android:enabled="false"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+        <EditText
+            android:id="@+id/etLong"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingLeft="10dp"
+            android:enabled="false"
+            android:hint="Longitude"
+            android:text=""
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorText"
+            android:background="@drawable/round_corner"
+            />
+
 
         <Spinner
             android:layout_marginTop="15dp"
@@ -157,12 +244,30 @@
             android:textSize="40px"
             android:paddingLeft="10dp"
             android:hint="Observation"
+            android:visibility="gone"
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/colorText"
             android:background="@drawable/round_corner"
             />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRecycler"
+            android:layout_above="@+id/addMore"
+            android:layout_alignParentTop="true"
+            tools:listitem="@layout/recycler_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/addMore"
+            android:layout_marginTop="10dp"
+            android:text="Add More"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
         <EditText
             android:id="@+id/etInternalPlumbing"
             android:layout_width="match_parent"
@@ -275,6 +380,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"/>
     </LinearLayout>
+    </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
 </layout>

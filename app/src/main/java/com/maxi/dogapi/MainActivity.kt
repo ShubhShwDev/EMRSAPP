@@ -1,5 +1,6 @@
 package com.maxi.dogapi
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -29,7 +30,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding= DataBindingUtil.setContentView(this,R.layout.activity_login);
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val isLogin = sharedPreference.getBoolean("isLogin",false)
 
+        if (isLogin){
+            val levelId = sharedPreference.getString("levelId","")
+            val fullName = sharedPreference.getString("fullName","")
+            val userId = sharedPreference.getString("userId","")
+            val tpqaId = sharedPreference.getString("tpqaId","")
+
+            val intent = Intent(this, SurveySubmitActivity::class.java)
+            intent.putExtra("levelId", levelId.toString())
+            intent.putExtra("fullName", fullName.toString())
+            intent.putExtra("userId", userId.toString())
+            intent.putExtra("tpqaId", tpqaId.toString())
+            startActivity(intent)
+        }
 
 //        fetchData()
         _binding.button.setOnClickListener {
@@ -71,12 +87,21 @@ class MainActivity : AppCompatActivity() {
                         Log.e("RESPONSE1","response"+response.data.status)
 
                         if (response.data.status.equals("true")) {
-//                            Toast.makeText(applicationContext,response.data.status+"  "+response.data.level_id,Toast.LENGTH_LONG).show()
+                            val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+                            var editor = sharedPreference.edit()
+                            editor.putString("fullName",response.data.full_name)
+                            editor.putString("levelId",response.data.level_id)
+                            editor.putString("userId",response.data.id)
+                            editor.putString("tpqaId",response.data.tpqa_id?.toString())
+                            editor.putBoolean("isLogin",true)
+                            editor.commit()
                             val intent = Intent(this, SurveySubmitActivity::class.java)
                             intent.putExtra("levelId", response.data.level_id.toString())
+                            intent.putExtra("fullName", response.data.full_name.toString())
                             intent.putExtra("userId", response.data.id.toString())
-                            intent.putExtra("tpqaId", response.data.tpqa_id.toString())
+                            intent.putExtra("tpqaId", response.data.tpqa_id?.toString())
                             startActivity(intent)
+                            finish()
 //
 //                                intent.putExtra("loginId", response.data.message[0].loginId)
 ////                                intent.putExtra("loginId", "95524.73741")

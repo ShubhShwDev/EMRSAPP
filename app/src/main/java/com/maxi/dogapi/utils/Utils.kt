@@ -3,6 +3,8 @@ package com.maxi.dogapi.utils
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Utils {
 
@@ -24,4 +26,18 @@ object Utils {
         }
     }
 
-}
+    fun checkCurrentDate():String{
+        val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
+        return currentDate
+//        val sdf = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
+//
+//        var calender:Calendar=Calendar.getInstance()
+//       val currentTime:Date= calender.time
+
+    }
+
+    fun checkCurrentTime():String {
+        val currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
+        return currentTime
+    }
+    }

@@ -6,5 +6,5 @@ data class SchoolDetails(@SerializedName("name")
                     val name: String = "",
                          @SerializedName("id")
                     val id: Int = 0,
-                         @SerializedName("block_id")
+                         @SerializedName("state_id")
                     val blockId: Int = 0)

@@ -10,8 +10,10 @@ import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.lp.LpRequestModel
 import com.maxi.dogapi.model.lp.LpResultResponse
+import com.maxi.dogapi.model.mainformresponse.MainFormResponse
 import com.maxi.dogapi.model.school.SchoolResponse
 import com.maxi.dogapi.model.state.StateResponse
+import com.maxi.dogapi.model.tpResponse.TpResponse
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyRequestModel
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyResJSONObject
 import com.maxi.dogapi.utils.Constants
@@ -52,4 +54,10 @@ interface FeedService {
 
     @POST(Constants.SCHOOL_URL)
     suspend fun getSchoolList(@Body requestModel: SchoolRequestModel): Response<SchoolResponse>
+
+    @POST(Constants.TP_URL)
+    suspend fun getTpList(@Body requestModel: TpRequestModel): Response<TpResponse>
+
+    @POST(Constants.MAIN_FORM_URL)
+    suspend fun getSubmitForm(@Body requestModel: MainFormRequestModel): Response<MainFormResponse>
 }

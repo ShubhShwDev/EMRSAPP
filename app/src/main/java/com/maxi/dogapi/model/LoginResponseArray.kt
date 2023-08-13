@@ -22,7 +22,7 @@ data class LoginResponseArray (
     val level_id: String,
 
     @SerializedName("tpqa_id")
-    val tpqa_id: String,
+    val tpqa_id: String?="",
 
     @SerializedName("full_name")
     val full_name: String

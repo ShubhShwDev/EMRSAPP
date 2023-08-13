@@ -10,8 +10,11 @@ import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
 import com.maxi.dogapi.model.lp.LpRequestModel
 import com.maxi.dogapi.model.lp.LpResultResponse
+import com.maxi.dogapi.model.mainformresponse.MainFormResponse
 import com.maxi.dogapi.model.school.SchoolResponse
 import com.maxi.dogapi.model.state.StateResponse
+import com.maxi.dogapi.model.tpResponse.TpDetails
+import com.maxi.dogapi.model.tpResponse.TpResponse
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyRequestModel
 import com.maxi.dogapi.model.villagesurvey.CalaVillageSurveyResJSONObject
 import com.maxi.dogapi.utils.NetworkResult
@@ -44,6 +47,18 @@ class Repository @Inject constructor(
     suspend fun getSchoolList(requestModel: SchoolRequestModel): Flow<NetworkResult<SchoolResponse>> {
         return flow<NetworkResult<SchoolResponse>> {
             emit(safeApiCall { remoteDataSource.getSchoolList(requestModel) })
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getTpList(requestModel: TpRequestModel): Flow<NetworkResult<TpResponse>> {
+        return flow<NetworkResult<TpResponse>> {
+            emit(safeApiCall { remoteDataSource.getTpList(requestModel) })
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getSubmitApi(requestModel: MainFormRequestModel): Flow<NetworkResult<MainFormResponse>> {
+        return flow<NetworkResult<MainFormResponse>> {
+            emit(safeApiCall { remoteDataSource.getSubmitForm(requestModel) })
         }.flowOn(Dispatchers.IO)
     }
 

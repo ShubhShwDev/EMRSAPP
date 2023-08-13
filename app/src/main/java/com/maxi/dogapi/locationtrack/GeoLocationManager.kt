@@ -41,7 +41,7 @@ class GeoLocationManager (context: Context) {
         }
     }
     companion object {
-        const val UPDATE_INTERVAL_MILLISECONDS: Long = 0
+        const val UPDATE_INTERVAL_MILLISECONDS: Long = 10
         const val FASTEST_UPDATE_INTERVAL_MILLISECONDS = UPDATE_INTERVAL_MILLISECONDS / 2
     }
 }
