@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.maxi.dogapi.data.remote.RemoteDataSource
 import com.maxi.dogapi.model.*
+import com.maxi.dogapi.model.activityresponse.ActivityResponse
 import com.maxi.dogapi.model.cala.CalaRequestModel
 import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
@@ -42,6 +43,12 @@ class Repository @Inject constructor(
     suspend fun getState(requestModel: StateRequestModel): Flow<NetworkResult<StateResponse>> {
         return flow<NetworkResult<StateResponse>> {
             emit(safeApiCall { remoteDataSource.getState(requestModel) })
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getActivity(requestModel: ActivityRequestModel): Flow<NetworkResult<ActivityResponse>> {
+        return flow<NetworkResult<ActivityResponse>> {
+            emit(safeApiCall { remoteDataSource.getActivity(requestModel) })
         }.flowOn(Dispatchers.IO)
     }
     suspend fun getSchoolList(requestModel: SchoolRequestModel): Flow<NetworkResult<SchoolResponse>> {

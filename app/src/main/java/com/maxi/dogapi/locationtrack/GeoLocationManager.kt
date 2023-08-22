@@ -32,16 +32,16 @@ class GeoLocationManager (context: Context) {
                 locationCallback,
                 Looper.getMainLooper())
             this.locationCallback = locationCallback
+
             startedLocationTracking = true
         }
     }
     fun stopLocationTracking() {
-        if (startedLocationTracking) {
             fusedLocationClient.removeLocationUpdates(locationCallback)
-        }
+
     }
     companion object {
         const val UPDATE_INTERVAL_MILLISECONDS: Long = 10
-        const val FASTEST_UPDATE_INTERVAL_MILLISECONDS = UPDATE_INTERVAL_MILLISECONDS / 2
+        const val FASTEST_UPDATE_INTERVAL_MILLISECONDS = UPDATE_INTERVAL_MILLISECONDS / 6
     }
 }

@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    >
+    android:paddingBottom="10dp">
 
-    <Spinner
+    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
         android:layout_marginTop="15dp"
         android:id="@+id/spinner_activity"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        app:smsp_hint="Select Activity"
         android:background="@drawable/round_corner" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        >
     <EditText
         android:id="@+id/etObservation"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_semibold"
         android:textSize="40px"
         android:paddingLeft="10dp"
@@ -28,6 +32,7 @@
         android:textColor="@color/colorText"
         android:background="@drawable/round_corner"
         />
+    </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
@@ -51,7 +56,7 @@
             android:id="@+id/btCamera"
             android:textColor="@color/colorAccent"
             android:text="Submit"
-            android:src="@mipmap/ic_launcher"
+            android:src="@android:drawable/ic_menu_camera"
             android:background="@drawable/round_corner"
             android:gravity="center"
             android:layout_marginTop="20dp"

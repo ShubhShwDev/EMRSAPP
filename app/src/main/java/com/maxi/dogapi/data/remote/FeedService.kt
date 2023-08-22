@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.maxi.dogapi.model.*
+import com.maxi.dogapi.model.activityresponse.ActivityResponse
 import com.maxi.dogapi.model.cala.CalaRequestModel
 import com.maxi.dogapi.model.cala.CalaResultResponse
 import com.maxi.dogapi.model.cala.CallaAssetsResponseArray
@@ -51,6 +52,9 @@ interface FeedService {
 
     @POST(Constants.STATE_LIST_URL)
     suspend fun getStateList(@Body requestModel: StateRequestModel): Response<StateResponse>
+
+    @POST(Constants.ACTIVITY_URL)
+    suspend fun getActivityList(@Body requestModel: ActivityRequestModel): Response<ActivityResponse>
 
     @POST(Constants.SCHOOL_URL)
     suspend fun getSchoolList(@Body requestModel: SchoolRequestModel): Response<SchoolResponse>

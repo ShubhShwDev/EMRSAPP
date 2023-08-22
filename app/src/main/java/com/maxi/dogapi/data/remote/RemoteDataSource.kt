@@ -30,6 +30,9 @@ class RemoteDataSource @Inject constructor(private val feedService: FeedService)
     suspend fun getState(stateRequestModel: StateRequestModel) =
         feedService.getStateList(stateRequestModel)
 
+    suspend fun getActivity(activityRequestModel: ActivityRequestModel) =
+        feedService.getActivityList(activityRequestModel)
+
     suspend fun getSchoolList(stateRequestModel: SchoolRequestModel) =
         feedService.getSchoolList(stateRequestModel)
 

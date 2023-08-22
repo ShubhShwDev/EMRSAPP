@@ -1,10 +1,15 @@
 package com.maxi.dogapi.utils
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Base64
+
+import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 object Utils {
 
@@ -26,8 +31,22 @@ object Utils {
         }
     }
 
+    fun getBase64Image(bitmap: Bitmap): String? {
+        try {
+            val buffer: ByteBuffer = ByteBuffer.allocate(
+                bitmap.rowBytes *
+                        bitmap.height
+            )
+            bitmap.copyPixelsToBuffer(buffer)
+            val data: ByteArray = buffer.array()
+            return Base64.encodeToString(data, Base64.DEFAULT)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return null
+    }
     fun checkCurrentDate():String{
-        val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
+        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         return currentDate
 //        val sdf = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
 //

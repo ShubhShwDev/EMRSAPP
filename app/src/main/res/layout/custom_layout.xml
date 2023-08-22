@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Form Submitted\nSuccessfully"
+        android:textColor="@color/colorText"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_gravity="center"
+        android:gravity="left"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kindly login to the web portal and submit the Report within a maximum of 10 days."
+        android:textColor="@color/colorText"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/montserrat_light"
+        android:layout_gravity="center"
+        android:gravity="left"></TextView>
+
+    <TextView
+        android:id="@+id/btn_Ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="OK"
+        android:textSize="16dp"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/design_default_color_primary"
+
+        ></TextView>
+
+
+</LinearLayout>

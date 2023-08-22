@@ -1,7 +1,11 @@
 package com.maxi.dogapi
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +13,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.maxi.dogapi.activities.WelcomeActivity
 import com.maxi.dogapi.activities.WelcomeCalaActivity
 import com.maxi.dogapi.databinding.ActivityLoginBinding
@@ -23,13 +29,19 @@ import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
     private val mainViewModel by viewModels<MainViewModel>()
     private lateinit var _binding: ActivityLoginBinding
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
+    private val LOCATION_PERMISSION_CODE = 1000
+
+    private var lat: String? = null
+    private var long: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding= DataBindingUtil.setContentView(this,R.layout.activity_login);
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val isLogin = sharedPreference.getBoolean("isLogin",false)
 
@@ -197,7 +209,91 @@ class MainActivity : AppCompatActivity() {
         throw  RuntimeException(e);
     }
     }
+
+
+private fun fetchLocation() {
+    val permissionGranted = requestLocationPermission();
+    if (permissionGranted) {
+//            if (isLocationEnabled()) {
+        mFusedLocationClient.lastLocation.addOnCompleteListener(this) { tasks ->
+            val location: Location? = tasks.result
+            if (location != null) {
+               lat= location.latitude.toString()
+                long=location.longitude.toString()
+
+//                        val geocoder = Geocoder(this, Locale.getDefault())
+//                        binding.etLat.setText(location.latitude.toString())
+//                        binding.etLong.setText(location.longitude.toString())
+//                        val list: List<Address> =
+//                            geocoder.getFromLocation(location.latitude, location.longitude, 1)
+//                        mainBinding.apply {
+//                            tvLatitude.text = "Latitude\n${list[0].latitude}"
+//                            tvLongitude.text = "Longitude\n${list[0].longitude}"
+//                            tvCountryName.text = "Country Name\n${list[0].countryName}"
+//                            tvLocality.text = "Locality\n${list[0].locality}"
+//                            tvAddress.text = "Address\n${list[0].getAddressLine(0)}"
+//                        }
+            }
+        }
+//            } else {
+//                Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
+//                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+//                startActivity(intent)
+//            }
+
+//            SingleShotLocationProvider.requestSingleUpdate(applicationContext,
+//                object : LocationCallback(), SingleShotLocationProvider.LocationCallback {
+//                    override fun onNewLocationAvailable(location: SingleShotLocationProvider.GPSCoordinates) {
+//                        if (binding.etLat.text.toString().length<1) {
+//                            binding.etLat.setText("Latitude: $lat")
+//                            binding.etLong.setText("Longitude: $long")
+//                        }
+//                        Log.e("RESPONSE", "lat" + lat + "" + long + "" + long)
+//                        Log.d("Location", "my location is " + location.toString())
+//                    }
+//                })
+//            locationManager = GeoLocationManager(applicationContext as Context)
+//            locationManager.startLocationTracking(locationCallback)
+//            locationManager.startLocationTracking(locationCallback)
+
+    } else {
+        requestLocationPermission()
+    }
 }
+
+
+private fun requestLocationPermission(): Boolean {
+    var permissionGranted = false
+
+    // If system os is Marshmallow or Above, we need to request runtime permission
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            val cameraPermissionNotGranted = ContextCompat.checkSelfPermission(
+//                applicationContext as Context,
+//                Manifest.permission.CAMERA
+//            ) == PackageManager.PERMISSION_DENIED
+//            if (cameraPermissionNotGranted){
+        val permission = arrayOf(
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        )
+
+        // Display permission dialog
+        requestPermissions(permission, LOCATION_PERMISSION_CODE)
+    } else {
+        // Permission already granted
+        permissionGranted = true
+//            }
+    }
+//        else{
+    // Android version earlier than M -> no need to request permission
+    permissionGranted = true
+//        }
+
+    return permissionGranted
+}
+
+
+
 
  fun givenUsingPlainJava_whenGeneratingRandomStringUnbounded_thenCorrect():String {
     val array = ByteArray(4) // length is bounded by 4
@@ -205,5 +301,30 @@ class MainActivity : AppCompatActivity() {
     val generatedString = String(array, Charset.forName("UTF-8"))
     println(generatedString)
     return generatedString
+}
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode === LOCATION_PERMISSION_CODE) {
+            if (grantResults.size === 2 &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                grantResults[1] == PackageManager.PERMISSION_GRANTED
+            ) {
+//                fetchLocation()
+//                 Permission was granted
+//                locationManager.startLocationTracking(locationCallback)
+            }
+//            else{
+//                // Permission was denied
+////                showAlert("Location permission was denied. Unable to track location.")
+//            }
+//        }
+        }
+
+    }
+
 }
 

@@ -85,79 +85,142 @@
             android:textColor="@color/colorText"
             android:background="@drawable/round_corner"
             />
-        <Spinner
+        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
             android:layout_marginTop="15dp"
             android:id="@+id/spinner_tp_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            app:smsp_hint="Select TP"
             android:visibility="gone"
             android:background="@drawable/round_corner"
            />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/simpleTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Name Of Visiting Officer"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etNameOfVisitingOfficer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
-            android:hint="Name Of Visiting Officer"
             android:text=""
-            android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
+                android:textColor="@color/colorText"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Designation"
 
-        <EditText
+            >
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDesignation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
-            android:hint="Designation"
             android:text=""
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Contact"
 
-        <EditText
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etContact"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
-            android:hint="Contact"
+                android:maxLength="10"
             android:text=""
             android:inputType="numberDecimal"
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Email"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
-            android:hint="Email"
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Visit Date"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
@@ -165,91 +228,138 @@
             android:enabled="false"
             android:paddingEnd="10dp"
             android:drawableEnd="@drawable/ic_calendar_today_24"
-            android:hint="Visit Date"
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             tools:ignore="Deprecated" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Visit Time"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etVisitTime"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
             android:editable="false"
             android:paddingEnd="10dp"
             android:drawableEnd="@drawable/ic_time_24"
-            android:hint="Visit Time"
             android:inputType="textEmailAddress"
             android:text=""
-            android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
-            tools:ignore="Deprecated" />
+            android:enabled="false"
 
-        <EditText
+            android:textColor="@color/colorText"
+                android:background="@null"
+            tools:ignore="Deprecated" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Latitude"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLat"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
-            android:hint="Latitude"
             android:text=""
             android:enabled="false"
             android:inputType="numberDecimal"
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Longitude"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLong"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
             android:enabled="false"
-            android:hint="Longitude"
             android:text=""
             android:inputType="numberDecimal"
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
-
-        <Spinner
+        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
             android:layout_marginTop="15dp"
             android:id="@+id/spinner_state"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            app:smsp_hint="Select state"
             android:background="@drawable/round_corner" />
 
-        <Spinner
+        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
             android:layout_marginTop="15dp"
             android:id="@+id/spinner_school"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            app:smsp_hint="Select school"
             android:background="@drawable/round_corner" />
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            android:hint="Observation"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etObservation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingLeft="10dp"
-            android:hint="Observation"
             android:visibility="gone"
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/colorText"
             android:background="@drawable/round_corner"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRecycler"
@@ -268,11 +378,23 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="40dp"/>
-        <EditText
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etInternalPlumbing"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingStart="10dp"
@@ -281,89 +403,186 @@
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Internal Electrical Work"
+
+            >
+
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etInternalElectricalWork"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:hint="Internal Electrical Work"
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Internal Ex Service"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etService"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="40px"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/colorText"
+                android:background="@null"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Other development works(Road,sports, Flooring, etc.)"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            >
 
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etOtherDevelopmentWork"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:hint="Other development works(Road,sports, Flooring, etc.)"
             android:inputType="textEmailAddress"
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            android:hint="Material quality(Brick,Cement, Sand, etc.)"
+
+            >
+
+
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etMaterialQuality"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="40px"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:hint="Material quality(Brick,Cement, Sand, etc.)"
             android:inputType="textEmailAddress"
             android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
+                android:background="@null"
             />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-
-        <EditText
-            android:id="@+id/etOverallObservation"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:textSize="40px"
-            android:paddingLeft="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
             android:hint="Overall Observation &amp; Remark"
-            android:inputType="textEmailAddress"
-            android:text=""
-            android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
-            />
+
+            >
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etOverallObservation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="40px"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:inputType="text"
+                android:textColor="@color/colorText"
+                android:background="@null"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 
-        <EditText
-            android:id="@+id/etRemark"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:textSize="40px"
-            android:paddingLeft="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
             android:hint="Remark"
-            android:inputType="textEmailAddress"
-            android:text=""
-            android:textColor="@color/colorText"
-            android:background="@drawable/round_corner"
-            />
+
+            >
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRemark"                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="40px"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:inputType="text"
+                android:textColor="@color/colorText"
+                android:background="@null"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 
 
