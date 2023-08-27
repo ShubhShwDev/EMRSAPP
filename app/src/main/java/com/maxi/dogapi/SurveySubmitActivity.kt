@@ -1,6 +1,5 @@
 package com.maxi.dogapi
 
-//import sun.security.krb5.Confounder.bytes
 
 import android.Manifest
 import android.Manifest.permission.*
@@ -40,6 +39,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.example.smarttag.test.Contact
 import com.example.smarttag.test.ContactsAdapter
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -49,6 +49,9 @@ import com.google.android.gms.location.LocationServices
 import com.maxi.dogapi.activities.ManagePermissions
 import com.maxi.dogapi.databinding.ActivitySubmitSurveyBinding
 import com.maxi.dogapi.locationtrack.GeoLocationManager
+import com.maxi.dogapi.model.MainFormRequestModel
+import com.maxi.dogapi.roomdb.Note
+import com.maxi.dogapi.roomdb.NoteViewModel
 import com.maxi.dogapi.utils.Utils
 import com.maxi.dogapi.viewmodel.SubmitSurveyViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,7 +62,6 @@ import java.util.*
 
 
 @AndroidEntryPoint
-
 class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapter ,
     LocationListener {
     private val LOCATION_PERMISSION_CODE = 1000
@@ -68,6 +70,9 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
     private lateinit var locationManagers: LocationManager
 
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
+
+    private lateinit var vm: NoteViewModel
+
 
     private var lat: String? = null
     private var long: String? = null
@@ -94,7 +99,6 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_submit_survey)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
 //        fetchLocation()
         getLocation()
         tpqaId = intent.getStringExtra("tpqaId").toString()
@@ -106,13 +110,15 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
         initActivityData()
         initDateAndTime()
         intiAddMore()
+        vm = ViewModelProviders.of(this)[NoteViewModel::class.java]
+
 //        binding.etLat.setText("28.89")
 //        binding.etLong.setText("28.89")
 
         binding.btSubmit.setOnClickListener(View.OnClickListener {
-
-
+            binding.pbDog.visibility=View.VISIBLE
             submitForm()
+            binding.btSubmit.isClickable=false
         })
         if (!levelId.equals("1")) {
             binding.etSchoolName.visibility=View.VISIBLE
@@ -186,7 +192,6 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
 
 
     private fun addMoreData(){
-
         val contact = Contact(null, null, null,contactList.get(0).activityList,-1)
         contactList.add(contact)
         binding.rvRecycler.adapter?.notifyItemChanged(contactList.size-1,contact)
@@ -199,7 +204,7 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
 
     private fun getLocation() {
         locationManagers = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             val permission = arrayOf(
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -659,7 +664,8 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
         // Create an image file name
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val imageFileName = "JPEG_" + timeStamp + "_"
-        val storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+//        val storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
         val image = File.createTempFile(
             imageFileName,  /* prefix */
             ".jpg",  /* suffix */
@@ -941,6 +947,32 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
                 remark
             )
 
+//            vm.insert(Note("title", "description","description","description", 1))
+
+            vm.insert(
+                Note(userId,
+                    levelId,
+                    tpqaId,
+                    officer_name,
+                    designation,
+                    contact,
+                    email,
+                    stateId,
+                    schoolId,
+                    visitDate,
+                    visitTime,
+                    lat,
+                    long,
+                    activityList,
+                    observationList,
+                    imageList,
+                    plumbing,
+                    electricalWork,
+                    extService,
+                    otherDevelopmentWork,
+                    materialQuality,
+                    overallObservation,
+                    remark,"1"))
 //        viewModel.fetchSubmitResponse(userId, levelId, tpqaId, officer_name, designation,contact,email,stateId,schoolId,
 //            visitDate,visitTime,lat,long,activityList.toString(),observationList.toString(),imageList.toString(),
 //            plumbing,electricalWork,extService,otherDevelopmentWork,materialQuality,overallObservation,remark)
@@ -951,6 +983,9 @@ class SurveySubmitActivity : AppCompatActivity(), ContactsAdapter.IContactsAdapt
 //            "Testing","Testing","Testing","Testing","Testing","Testing","Testing")
 
             viewModel._response_main_form_submit.observe(this) {
+                binding.btSubmit.isClickable=true
+                binding.pbDog.visibility=View.GONE
+
                 it?.let {
                     showDialog(this)
 //                Toast.makeText(applicationContext,it,Toast.LENGTH_LONG).show()

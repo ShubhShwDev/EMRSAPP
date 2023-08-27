@@ -112,6 +112,8 @@ class SubmitSurveyViewModel @Inject constructor
         val requestModel =  MainFormRequestModel(user_id,level_id,tpqa_id,officer_name,designation,contact,email,
             state_id,school_id, visit_date, visit_time, lat, long, activity_id, observation, photo, int_plumb, int_elec_work, ext_service, oth_dev_work, mat_qual, over_observation, remarks)
         Log.e("RESPONSESUBMITMAINFORM","respnse"+requestModel)
+
+
         repository.getSubmitApi(requestModel).collect { values ->
             Log.e("RESPONSESUBMITMAINFORM","respnse"+values+" "+values.data+ " "+values.data?.message.toString())
 

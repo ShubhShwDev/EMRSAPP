@@ -5,11 +5,12 @@ import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.util.Base64
-
 import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.*
-
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 object Utils {
 
@@ -55,8 +56,17 @@ object Utils {
 
     }
 
+    fun subscribeOnBackground(function: () -> Unit) {
+        Single.fromCallable {
+            function()
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
+    }
+
     fun checkCurrentTime():String {
-        val currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
+        val currentTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
         return currentTime
     }
     }

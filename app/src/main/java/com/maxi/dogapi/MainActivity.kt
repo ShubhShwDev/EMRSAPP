@@ -18,6 +18,7 @@ import com.google.android.gms.location.LocationServices
 import com.maxi.dogapi.activities.WelcomeActivity
 import com.maxi.dogapi.activities.WelcomeCalaActivity
 import com.maxi.dogapi.databinding.ActivityLoginBinding
+import com.maxi.dogapi.roomdb.ListDBActivity
 import com.maxi.dogapi.utils.NetworkResult
 import com.maxi.dogapi.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             val userId = sharedPreference.getString("userId","")
             val tpqaId = sharedPreference.getString("tpqaId","")
 
-            val intent = Intent(this, SurveySubmitActivity::class.java)
+            val intent = Intent(this, ListDBActivity::class.java)
             intent.putExtra("levelId", levelId.toString())
             intent.putExtra("fullName", fullName.toString())
             intent.putExtra("userId", userId.toString())

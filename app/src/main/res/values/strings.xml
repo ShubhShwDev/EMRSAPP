@@ -7,4 +7,5 @@
     <string name="button_start_tracking">Start Trip</string>
     <string name="button_stop_tracking">Stop Trip</string>
     <string name="latitude_label">Latitude</string>
+    <string name="external_services">External Services(Electric &amp; plumbing)</string>
 </resources>
